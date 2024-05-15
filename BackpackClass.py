@@ -3,6 +3,6 @@ class Backpack:
         self.items = []
 
 
-myBackpack = Backpack()
-myBackpack.items.append('notebook')
-print(myBackpack.items)
+my_backpack = Backpack()
+my_backpack.items.append('notebook')
+print(my_backpack.items)
