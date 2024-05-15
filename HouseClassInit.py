@@ -3,4 +3,5 @@ class House:
         self.price = price
 
 
-myhouse = House(10000)
+myHouse = House(10000)
+print(myHouse.price)
