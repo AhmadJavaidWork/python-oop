@@ -41,7 +41,7 @@ class Player:
         self._counter -= 1
 
     def roll_die(self):
-        return self._die.roll()
+        self._die.roll()
 
 
 class DiceGame:
@@ -64,15 +64,14 @@ class DiceGame:
     def _play_round(self):
         self._print_round_welcome()
 
-        player_value = self._player.roll_die()
-        computer_value = self._computer.roll_die()
+        self._roll_the_dice()
 
-        self._show_dice(player_value, computer_value)
+        self._show_dice(self._player.die.value, self._computer.die.value)
 
-        if player_value > computer_value:
+        if self._player.die.value > self._computer.die.value:
             print("You won the round!")
             self._update_counters(winner=self._player, loser=self._computer)
-        elif computer_value > player_value:
+        elif self._computer.die.value > self._player.die.value:
             print("The computer won this round. Try again.")
             self._update_counters(winner=self._computer, loser=self._player)
         else:
@@ -107,18 +106,18 @@ class DiceGame:
             return False
 
     def _show_game_over(self, winner):
+        print("\n=================")
+        print("G A M E O V E R")
+        print("===================")
         if winner.is_computer:
-            print("\n=================")
-            print("G A M E O V E R")
-            print("===================")
             print("The computer won the game. Sorry...")
-            print("===================================")
         else:
-            print("\n=================")
-            print("G A M E O V E R")
-            print("===================")
             print("You won the game! Congratulations.")
-            print("==================================")
+        print("==================================")
+
+    def _roll_the_dice(self):
+        self._player.roll_die()
+        self._computer.roll_die()
 
 
 player_die = Die()
