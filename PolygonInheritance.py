@@ -15,7 +15,7 @@ class Triangle(Polygon):
         self.height = height
 
 
-class Squer(Polygon):
+class Square(Polygon):
     pass
 
 
